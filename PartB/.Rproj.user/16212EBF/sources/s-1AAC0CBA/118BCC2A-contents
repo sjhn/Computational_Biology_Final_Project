@@ -1,0 +1,33 @@
+a= read.table("../PartA/Nest_Temps.txt",sep = "\t",header = TRUE)
+
+Control_Temperature_Mean=mean(a$Temperature[a$Treatment=="Control"])
+Maternal_Temperature_Mean=mean(a$Temperature[a$Treatment=="Maternal"])
+
+Control_Temperatures=a$Temperature[a$Treatment=="Control"]
+Maternal_Temperatures=a$Temperature[a$Treatment=="Maternal"]
+
+hist(Control_Temperatures, col=4, xlim=c(10,50),ylim=c(0,5000))
+hist(Maternal_Temperatures, col=rgb(0.8,0.8,0.8,0.5), ylim=c(0,5000),add=T)
+
+b=c("Control","Maternal")
+
+boxplot(Control_Temperatures,Maternal_Temperatures,names=b)
+pvalue<-summary(aov(a$Temperature~a$Treatment))[[1]][["Pr(>F)"]][1]
+
+t=paste('P-Value of Anova:',signif(pvalue,2))
+mtext(t,side=3,col='red')
+
+par(mfrow=c(1,3))
+
+
+hist(Control_Temperatures, col=4, xlim=c(10,50),ylim=c(0,250),pch=1)
+hist(Maternal_Temperatures, col=rgb(0.8,0.8,0.8,0.5), ylim=c(0,4500),pch=2)
+
+boxplot(Control_Temperatures,Maternal_Temperatures,pch=3,names=b)
+png(filename = 'mix.png',height = 1078, width=539)
+
+dev.off()
+step8=tapply(a$Temperature,list(a$Julian.Date,a$Treatment),mean)
+par(mfrow=c(1,1))
+plot(step8)
+title("Maternal VS Control temperature")

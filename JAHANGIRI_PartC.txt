@@ -1,0 +1,8 @@
+
+a. As the analysis of variance showed, the treatment is a statistically significant factor in determining the temperature, with a p-value << 0.05. So the answer to this question is yes.
+
+b.The aspects that influence the temperature, fo instance being exposed to sun or being relatively isolated from the outside temperature.
+
+c.Changing the isolating situation of the potential nests, like going under water, or cold an warm streams that can change the temperature of the habitat. Also the air currents may have an effect.
+
+d.I would have challenged why is this the best idea to only consider the treatment factor on temperature. Another idea could be considering how independet the different factors are by considering their correlation. For instance, date and time of the day may be important factors for the temperature, so their combination can be an important factor. Another interesting thing could be eliminating some data entries to see how well we can predict them by linear regression or more sophisticated models.
