@@ -17,3 +17,5 @@ The given files that were used in the beginning are raw outputs from the tempera
 For cleaning the data, I have written a bash script named ***JAHANGIRI_PartA.sh***
 
 The given files (the metadata.csv file that I have begined with are not comprehensive of all the nests in the metadata file. Some nests were predated and the sensors were lost. To make sure each nest has a pair of files from both treatments, I have setup a loop to extract the paired log files for a given nest. This script will continue to work, when there is more data in metadata.csv (it is not hardcoded to the number of nests.) 
+
+Within the loop, the raw data for each nest pair is extracted and written into a file which is imported into R. The temperature data for all the nests are combined into a single master tab-delimited file with five columns (some columns are added). Also, the date is converted into [Julian date](https://en.wikipedia.org/wiki/Julian_day/ "Julian day") format.
